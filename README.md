@@ -10,6 +10,7 @@ Sets up most of my stuff for a dev environment
 + Installs git
 + Installs phpMyAdmin ( + configuration )
 + Installs and configures Apache (httpd)
++ Installs Drush
 + Creates local workspace directories
 
 *What it doesn't*
