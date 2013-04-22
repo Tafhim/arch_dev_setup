@@ -1,0 +1,5 @@
+#!/bin/bash                                       
+# Prepend localhost to resolv.conf for dnsmasq
+
+
+sed -i '1s|^|nameserver 127.0.0.1\n|' /etc/resolv.conf
