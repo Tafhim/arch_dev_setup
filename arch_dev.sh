@@ -16,7 +16,7 @@ USER_HOME=/home/$USER
 IDIR=$USER_HOME/dev_server_installer
  
 cd $IDIR
- 
+
 echo "Installing packages"
 pacman -Syy
 pacman -S --needed vim dnsmasq apache php php-pear php-sqlite php-curl imap php-intl mysql php-apache php-mcrypt phpmyadmin git openssh nodejs curl zlib base-devel sqlite3 openssl libyaml
@@ -41,10 +41,15 @@ mkdir -p $USER_HOME/workspace/php/projects
 mkdir -p $USER_HOME/workspace/php/www
  
 echo "Applying ownership for $USER"
-chown -R $USER:users $USER_HOME/workspace
-chmod o+x $USER_HOME/
+chown -R $USER:$USER $USER_HOME/workspace
+chmod o+x /home
+chmod o+x $USER_HOME
+chmod o+x $USER_HOME/workspace
+usermod -aG http $USER
+chmod g+xr-w /home
+chmod g+xr-w $USER_HOME
+chmod -R g+xr-w $USER_HOME/workspace
 chmod 0755 $USER_HOME/
-chmod -R o+x $USER_HOME/workspace/
  
 echo "Configuring dnsmasq"
 echo " added listen-address=127.0.0.1"
