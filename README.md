@@ -11,6 +11,7 @@ Sets up most of my stuff for a dev environment
 + Installs phpMyAdmin ( + configuration )
 + Installs and configures Apache (httpd)
 + Installs Drush
++ Installs Evince PDF Reader
 + Creates local workspace directories
 
 *What it doesn't*
