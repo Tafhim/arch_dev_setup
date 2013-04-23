@@ -19,7 +19,7 @@ cd $IDIR
 
 echo "Installing packages"
 pacman -Syy
-pacman -S --needed vim dnsmasq apache php php-pear php-sqlite php-curl imap php-intl mysql php-apache php-mcrypt phpmyadmin git openssh nodejs curl zlib base-devel sqlite3 openssl libyaml
+pacman -S --needed evince vim dnsmasq apache php php-pear php-sqlite php-curl imap php-intl mysql php-apache php-mcrypt phpmyadmin git openssh nodejs curl zlib base-devel sqlite3 openssl libyaml
 # From AUR = drush
 rm -rf drush
 curl -o $IDIR/drush.tar.gz https://aur.archlinux.org/packages/dr/drush/drush.tar.gz
@@ -92,6 +92,7 @@ cp -f $IDIR/etc/httpd/conf/httpd.conf /etc/httpd/conf/httpd.conf
 sed -i "s/deny/allow/g" /etc/webapps/phpmyadmin/.htaccess
 sed -i "s/;extension=mysqli.so/extension=mysqli.so/g" /etc/php/php.ini
 sed -i "s/;extension=mcrypt.so/extension=mcrypt.so/g" /etc/php/php.ini
- 
+sed -i "s/;extension=mysql.so/extension=mysql.so/g" /etc/php/php.ini 
+sed -i "s/;extension=pdo_mysql.so/extension=pdo_mysql.so/g" /etc/php/php.ini
 echo "Reboot the system!!"
 #reboot
